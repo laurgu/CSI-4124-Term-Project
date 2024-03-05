@@ -1,1 +1,1 @@
-# CSI-4124-Term-Project
+# CSI 4124 Term Project
