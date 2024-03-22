@@ -26,24 +26,24 @@ DROP TABLE IF EXISTS `car`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `car` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `company` varchar(45) NOT NULL,
-  `model` varchar(45) NOT NULL,
-  `engine_type` varchar(45) NOT NULL,
-  `engine_fuel_type` varchar(45) NOT NULL,
-  `transmission` varchar(45) NOT NULL,
-  `color` varchar(45) NOT NULL,
-  `body_type` varchar(45) NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `model` varchar(255) NOT NULL,
+  `engine_type` varchar(255) NOT NULL,
+  `engine_fuel_type` varchar(255) NOT NULL,
+  `transmission` varchar(255) NOT NULL,
+  `color` varchar(255) NOT NULL,
+  `body_type` varchar(255) NOT NULL,
   `engine_horsepower` int NOT NULL,
   `torque` int NOT NULL,
   `num_engine_cylinders` int NOT NULL,
-  `drivetrain` varchar(45) NOT NULL,
+  `drivetrain` varchar(255) NOT NULL,
   `num_of_doors` int NOT NULL,
-  `size` varchar(45) NOT NULL,
+  `size` varchar(255) NOT NULL,
   `highway_mpg` int NOT NULL,
   `city_mpg` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `idCar_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67649 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,12 +58,14 @@ CREATE TABLE `car_sales` (
   `car` int NOT NULL,
   `date` int NOT NULL,
   `customer` int NOT NULL,
+  `dealer` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  CONSTRAINT `car` FOREIGN KEY (`id`) REFERENCES `car` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `customer` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `date` FOREIGN KEY (`id`) REFERENCES `date` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `car_fk` FOREIGN KEY (`id`) REFERENCES `car` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `customer_fk` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `date_fk` FOREIGN KEY (`id`) REFERENCES `date` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `dealer_fk` FOREIGN KEY (`id`) REFERENCES `dealership` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +81,7 @@ CREATE TABLE `cpi` (
   `cpi_value` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1851 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,12 +93,12 @@ DROP TABLE IF EXISTS `customer`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customer` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `gender` varchar(45) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
   `annual_income` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13919 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +118,7 @@ CREATE TABLE `date` (
   `season` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13919 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,21 +130,13 @@ DROP TABLE IF EXISTS `dealership`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `dealership` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `dealer_num` varchar(45) NOT NULL,
-  `phone_num` varchar(45) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `dealer_num` varchar(255) NOT NULL,
+  `phone_num` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13919 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping events for database 'db'
---
-
---
--- Dumping routines for database 'db'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -153,4 +147,4 @@ CREATE TABLE `dealership` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-18  2:15:57
+-- Dump completed on 2024-03-22  1:09:23
