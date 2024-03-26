@@ -78,7 +78,7 @@ DROP TABLE IF EXISTS `cpi`;
 CREATE TABLE `cpi` (
   `id` int NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
-  `cpi_value` varchar(45) NOT NULL,
+  `cpi_value` FLOAT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1851 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -96,6 +96,7 @@ CREATE TABLE `customer` (
   `name` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
   `annual_income` int NOT NULL,
+  `phone_num` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13919 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -121,7 +122,6 @@ CREATE TABLE `date` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13919 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
 -- Table structure for table `dealership`
 --
 
@@ -132,7 +132,7 @@ CREATE TABLE `dealership` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `dealer_num` varchar(255) NOT NULL,
-  `phone_num` varchar(255) NOT NULL,
+  `dealer_region` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13919 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
