@@ -34,13 +34,14 @@ CREATE TABLE `car` (
   `color` varchar(255) NOT NULL,
   `body_type` varchar(255) NOT NULL,
   `engine_horsepower` int NOT NULL,
-  `torque` int NOT NULL,
   `num_engine_cylinders` int NOT NULL,
   `drivetrain` varchar(255) NOT NULL,
   `num_of_doors` int NOT NULL,
   `size` varchar(255) NOT NULL,
   `highway_mpg` int NOT NULL,
   `city_mpg` int NOT NULL,
+  `popularity` int NOT NULL,
+  `MSRP` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `idCar_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=67649 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
