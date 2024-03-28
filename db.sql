@@ -62,11 +62,12 @@ CREATE TABLE `car_sales` (
   `dealer` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  CONSTRAINT `car_fk` FOREIGN KEY (`id`) REFERENCES `car` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `customer_fk` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `date_fk` FOREIGN KEY (`id`) REFERENCES `date` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `dealer_fk` FOREIGN KEY (`id`) REFERENCES `dealership` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `car_fk` FOREIGN KEY (`car`) REFERENCES `car` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `customer_fk` FOREIGN KEY (`customer`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `date_fk` FOREIGN KEY (`date`) REFERENCES `date` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `dealer_fk` FOREIGN KEY (`dealer`) REFERENCES `dealership` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,9 +116,9 @@ CREATE TABLE `date` (
   `day` int NOT NULL,
   `month` int NOT NULL,
   `year` int NOT NULL,
-  `day_of_week` varchar(45) NOT NULL,
-  `fiscal_quarter` varchar(45) NOT NULL,
-  `season` varchar(45) NOT NULL,
+  `day_of_week` varchar(255) NOT NULL,
+  `fiscal_quarter` varchar(255) NOT NULL,
+  `season` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13919 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
