@@ -60,6 +60,7 @@ CREATE TABLE `car_sales` (
   `date` int NOT NULL,
   `customer` int NOT NULL,
   `dealer` int NOT NULL,
+  `price` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   CONSTRAINT `car_fk` FOREIGN KEY (`car`) REFERENCES `car` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
