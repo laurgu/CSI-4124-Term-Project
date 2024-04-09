@@ -1,0 +1,45 @@
+#1st question of Part C
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder, MinMaxScaler
+from sklearn.model_selection import train_test_split
+from sklearn.svm import OneClassSVM
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming 'complete_df' is your DataFrame after preprocessing
+# Features selected based on the document insights
+features = ['MSRP', 'Annual Income', 'Popularity']
+X = complete_df[features]
+
+# Scaling features
+scaler = MinMaxScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Applying One-Class SVM for Outlier Detection
+oc_svm = OneClassSVM(nu=0.01, kernel="rbf", gamma=0.1)
+oc_svm.fit(X_scaled)
+outliers_pred = oc_svm.predict(X_scaled)
+
+# Adding outlier detection results back to the DataFrame
+complete_df['Outlier'] = outliers_pred
+
+# Visualizing Outliers
+plt.figure(figsize=(10, 6))
+plt.scatter(complete_df['Annual Income'], complete_df['MSRP'], c=complete_df['Outlier'], cmap='coolwarm')
+plt.title('Outlier Detection: Annual Income vs MSRP')
+plt.xlabel('Annual Income')
+plt.ylabel('MSRP')
+plt.colorbar(label='Outlier (-1: Outlier, 1: Inlier)')
+plt.show()
+
+
+#2nd part of the Part C
+#In this phase of our analysis, we aimed to identify outliers within our dataset utilizing
+#the One-Class SVM algorithm, focusing on the 'MSRP', 'Annual Income', and 'Popularity' features. 
+#The One-Class SVM algorithm, known for its efficacy in anomaly detection, was configured to 
+#isolate the most extreme deviations from the pattern observed in our scaled dataset. 
+#Our visual analysis, contrasting 'Annual Income' against 'MSRP', facilitated the 
+#identification of outliers, revealing instances where either the vehicle price was 
+#exceptionally high relative to income or vice versa. These anomalies could indicate 
+#data inaccuracies, unique customer segments, or exceptional sales instances worth further 
+#investigation. By identifying these outliers, we ensure the integrity of our dataset and 
+#safeguard subsequent analyses against skewed interpretations.
