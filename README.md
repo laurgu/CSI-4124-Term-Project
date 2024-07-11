@@ -25,7 +25,7 @@ The objective of this assignment was to use data science techniques and analytic
 
 ### Part 1 - Data Preprocessing
 
-For this assignment, we used three datasets which required preprocessing to before being entered into the database. During preprocessing steps, we handled null values, duplicate enteries, corrected errors in enteries, and reformatted data. These preprocessing steps can be viewed in the file _CSI 4124 Part2ipnb_. Below is an example of how we identified null and duplicate values and addressed a null value in this particular dataset.
+For this assignment, we used three datasets which required preprocessing to before being entered into the database. During preprocessing steps, we handled null values, duplicate enteries, corrected errors in enteries, and reformatted data. These preprocessing steps can be viewed in the file _CSI 4124 Part2.ipynb_. Below is an example of how we identified null and duplicate values and addressed a null value in this particular dataset.
 
 ![Screenshot of identifying null and dupicate values](Screenshots/preprocessing_1.png)
 
