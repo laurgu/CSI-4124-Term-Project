@@ -3,15 +3,13 @@
 In this project, we created an OLAP (online analytical processing) system that organized the data of car sales and car features to analyze trends in car sales.
 
 ## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
+- [Objectives](#objectives)
 - [Technologies Used](#technologies-used)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
+- [Tasks](#tasks)
+  - [Part 1 - Data Preprocessing](#part-1---data-preprocessing)
+  - [Part 2 - Database](#part-2---database)
+  - [Part 3 - Queries and Interactive Dashboard](#part-3---queries-and-interactive-dashboard)
+  - [Part 4 - Data Mining](#part-4---data-mining)
 
 ## Objective
 
