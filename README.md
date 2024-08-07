@@ -67,4 +67,4 @@ _Screenshots of the dahsboard_
 
 ### Part 4 - Data Mining
 
-In this phase of the project, we were intructed to use three AI models to classify our data in a meaningful way. We implemented a decision tree model, gradient boosting model, and gradient boosting model to classify the prices of cars based on their features as this sort of classification could be useful to dealership, for example, when pricing their vehicles. We compared the precision, recall, and runtimes of the models. The data mining process can be viewed in the _Data Mining.ipynb_ file.
+In this phase of the project, we were intructed to use three AI models to classify our data in a meaningful way. We implemented a decision tree model, gradient boosting model, and random forest model to classify the prices of cars based on their features as this sort of classification could be useful to dealership, for example, when pricing their vehicles. We compared the precision, recall, and runtimes of the models. The data mining process can be viewed in the _Data Mining.ipynb_ file.
